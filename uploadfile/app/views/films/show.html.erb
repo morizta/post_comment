@@ -1,0 +1,19 @@
+ <p id="notice"><%= notice %></p>
+
+ <%= render :partial => @film %>
+
+ <%= link_to 'Edit', edit_film_path(@film) %> |
+ <%= link_to 'Back', films_path %>
+
+  <h2>Comments</h2>
+ <div id="comments">
+         <%= render :partial => @film.comments %>
+ </div>
+
+ <%= form_for [@film, Comment.new] do |f| %>
+        <p>
+                <%= f.label :description, "New comment" %><br/>
+                <%= f.text_area :description %>
+        </p>
+        <p><%= f.submit "Add comment" %></p>
+<% end %>
